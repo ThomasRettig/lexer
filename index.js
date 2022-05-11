@@ -105,9 +105,9 @@ class Magenta {
           if (!(tokens[pos + 1].value in vars)) {
             return console.log(`Undefined variable ${tokens[pos + 1].value}`);
           }
-          console.log("\x1b[35m%s\x1b[0m", vars[tokens[pos + 1].value]);
+          console.log(vars[tokens[pos + 1].value]);
         } else {
-          console.log("\x1b[35m%s\x1b[0m", tokens[pos + 1].value);
+          console.log(tokens[pos + 1].value);
         }
         pos += 2;
       } else if (token.type === "keyword" && token.value === "var") {
@@ -168,8 +168,10 @@ class Magenta {
   }
 }
 
-const codes = `print "hello world"
-var msg = "secret message"
-print msg`;
+// execute some code
+
+const codes =`print "Hello world!"
+var foo = "Foo"
+print bar`;
 const magenta = new Magenta(codes);
 magenta.run();
